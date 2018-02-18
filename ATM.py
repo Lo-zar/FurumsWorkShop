@@ -1,62 +1,62 @@
 class ATM:
     print("_-___----____ ATM MACHINE ____----___-_")
 
-    def __init__(self, Balance, Bank_Name):
-        self.Balance = Balance
-        self.Bank_Name = Bank_Name
-        self.Withdrawals_List = []
+    def __init__(self, balance, bank_name):
+        self.balance = balance
+        self.bank_name = bank_name
+        self.withdrawals_list = []
 
-    def Withdraw(self, Request):
-        print("WELCOME TO {0}".format(self.Bank_Name))
+    def Withdraw(self, request):
+        print("WELCOME TO {0}".format(self.bank_name))
         print("Your Balance Is: {0}$ And You Requested {1}$.".format(
-            self.Balance, Request))
+            self.balance, request))
 
-        if self.Balance <= 0:
+        if self.balance <= 0:
             print("Insufficient Balance, Please Deposit Money And ,Try Agein @_@")
 
-        elif Request > self.Balance:
-            print("I can,t Give You All This Money @_@ , Your Balance Is " + str(self.Balance))
+        elif request > self.balance:
+            print("I can,t Give You All This Money @_@ , Your Balance Is " + str(self.balance))
 
-        else:
-            self.Withdrawals_List.append(Request)
-            self.Balance -= Request
-            Bills = [100, 50, 10, 5]
-            for Currency in Bills:
-                Bills_number = int(Request / Currency)
-                Request -= Currency * Bills_number
-                for i in range(Bills_number):
-                    print("give", Currency)
-            if Request > 0:
-                print("give", Request)
+    def withdrawals_list:
+        self.withdrawals_list.append(request)
+        self.balance -= request
+        bills = [100, 50, 10, 5]
+        for currency in bills:
+            bills_number = int(request / currency)
+            request -= currency * bills_number
+            for i in range(Bills_number):
+                print("give", currency)
+            if request > 0:
+                print("give", request)
 
         self.seperator()
-        return self.Balance
+        return self.balance
 
-    def show_Withdrawals(self):
+    def show_withdrawals(self):
         print("_-___----____ ATM MACHINE ____----___-_")
-        previous_Balance = self.Balance + sum(self.Withdrawals_List)
-        print("Previous Balance:", previous_Balance)
+        previous_balance = self.balance + sum(self.withdrawals_list)
+        print("previous balance:", previous_balance)
         index =1
         for Withdrawal in self.Withdrawals_List:
-            print("{0} Withdrawal No.{1}: {2}$".format(self.Bank_Name, index, Withdrawal))
+            print("{0} withdrawal No.{1}: {2}$".format(self.bank_name, index, withdrawal))
             index += 1
 
-        print("All withdrawals:", sum(self.Withdrawals_List))
-        print("Available Balance:", previous_Balance - sum(self.Withdrawals_List))
+        print("all withdrawals:", sum(self.withdrawals_list))
+        print("available balance:", previous_balance - sum(self.withdrawals_list))
         self.seperator()
 
     def seperator(self):
     	print("_-___----____ ATM MACHINE ____----___-_")
 
 
-Balance1 = 500
-Balance2 = 1000
+balance1 = 500
+balance2 = 1000
 
-atm1 = ATM(Balance1, "BNP BANK")
-atm2 = ATM(Balance2, "WATAN BANK")
+atm1 = ATM(balance1, "BNP BANK")
+atm2 = ATM(balance2, "WATAN BANK")
 
-atm1.Withdraw(500)
-atm1.Withdraw(250)
+atm1.withdraw(500)
+atm1.withdraw(250)
 
-atm2.Withdraw(200)
-atm2.Withdraw(100)
+atm2.withdraw(200)
+atm2.withdraw(100)
